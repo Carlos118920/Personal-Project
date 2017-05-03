@@ -1,0 +1,36 @@
+<div class="transitionWhite"></div>
+<div class="transitionBlue"></div>
+
+<div transition-in class="courseSurveyContainer">
+<div class="courseContainer">
+  <div class="course">
+    <h1>{{course.location}}</h1>
+    <img src="{{course.image}}" alt="DevMountain Location">
+    <div class="courseInfo">
+      <p>{{course.type}}</p>
+      <p>{{course.immersiveorafterhours}}</p>
+      <p>{{course.datestart}} - {{course.dateend}}</p>
+      <p>${{course.price}}</p>
+    </div>
+  </div>
+</div>
+
+  <button transition-out ng-click="switchApply()">Choose a different course?</button>
+  <form class="survey">
+    <h2>Why do you wan to participate in this DevMountain cohort?</h2>
+    <h4>(Be as wordy as you need to)</h4>
+    <input ng-model="survey.why" type="text" required>
+    <h2>How did you hear about this cohort?</h2>
+    <input ng-model="survey.how" type="text" required>
+    <h2>Are you requesting housing?</h2>
+    <h4>(Immersive programs only)</h4>
+    <input ng-model="survey.housing" type="radio" name="housing" value="true" required><p>Yes</p>
+    <input ng-model="survey.housing" type="radio" name="housing" value="false" required><p>No</p>
+    <h2>Are you requesting financing?</h2>
+    <input ng-model="survey.financing" type="radio" name="financing" value="true" required><p>Yes</p>
+    <input ng-model="survey.financing" type="radio" name="financing" value="false" required><p>No</p>
+    <h1>Submit Your Application</h1>
+    <p>By submitting this application, you verify that you have read and are agreeing to DevMountain's Application and Enrollment Agreement.</p>
+    <button ng-click="submitApplication()" ui-sref="application">Submit Application</button>
+  </form>
+</div>

@@ -1,0 +1,423 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@import url("https://fonts.googleapis.com/css?family=League+Script|Muli:600");
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+.loadingContainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+
+.loadingAnimationContainer {
+  opacity: 0;
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .loadingAnimationContainer .loadingAnimationContainer2 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -25; }
+  .loadingAnimationContainer .circle {
+    border-radius: 50%; }
+  .loadingAnimationContainer .one {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    left: -15px;
+    bottom: 10px;
+    background: #2aabe2; }
+  .loadingAnimationContainer .two {
+    height: 20px;
+    width: 20px;
+    background: #2aabe2; }
+  .loadingAnimationContainer .three {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    background: #2aabe2;
+    bottom: 10px;
+    right: -15px; }
+  .loadingAnimationContainer .four {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    background: #2aabe2;
+    top: -20px;
+    right: 40px; }
+  .loadingAnimationContainer .five {
+    height: 20px;
+    width: 20px;
+    bottom: 10px;
+    left: -45px;
+    position: absolute;
+    background: #2aabe2; }
+  .loadingAnimationContainer .six {
+    height: 20px;
+    width: 20px;
+    bottom: 10px;
+    right: -45px;
+    position: absolute;
+    background: #2aabe2; }
+  .loadingAnimationContainer .seven {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 65px;
+    top: -50px;
+    background: #2aabe2; }
+
+#homeBgVid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -50;
+  transform: translateX(-50%) translateY(-50%);
+  transition: 2s opacity; }
+
+.transitionWhite {
+  background: white;
+  height: 100vh;
+  width: 150%;
+  position: fixed;
+  left: -25%;
+  top: 0;
+  z-index: 50; }
+
+.transitionBlue {
+  background: #2aabe2;
+  height: 100vh;
+  width: 150%;
+  position: fixed;
+  left: -25%;
+  top: 0;
+  z-index: 25; }
+
+.homeContainer {
+  z-index: 0;
+  font-family: 'Muli', sans-serif;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: transparent;
+  color: white; }
+  .homeContainer .homeTitle {
+    text-align: center;
+    width: 500px;
+    height: 200px;
+    letter-spacing: 1px; }
+    .homeContainer .homeTitle h1 {
+      font-size: 50px;
+      margin-bottom: 20px; }
+  .homeContainer .homeCircleContainer {
+    width: 440px;
+    margin-right: 100px;
+    letter-spacing: 1px; }
+    .homeContainer .homeCircleContainer .homeBigCircle {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: transparent;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 3px solid white; }
+    .homeContainer .homeCircleContainer .homeBigCircle:before {
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
+      top: -8px;
+      left: -8px;
+      right: 2px;
+      bottom: 2px;
+      border: 3px solid white; }
+    .homeContainer .homeCircleContainer .homeSmallCircle {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      margin-left: 275px;
+      margin-bottom: -50px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid white; }
+    .homeContainer .homeCircleContainer .homeSmallCircle:before {
+      content: " ";
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
+      top: -8px;
+      left: -8px;
+      right: 2px;
+      bottom: 2px;
+      border: 3px solid white; }
+
+.applicationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .applicationContainer .devMountainTimelineContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #2aabe2;
+    padding: 20px; }
+    .applicationContainer .devMountainTimelineContainer h3 {
+      color: white;
+      font-size: 36px;
+      margin: 20px; }
+    .applicationContainer .devMountainTimelineContainer .devMountainTimeline {
+      width: 60%;
+      background: #2aabe2; }
+  .applicationContainer .applicationTitle {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 34px;
+    font-weight: bold;
+    color: #2aabe2;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-family: Lucida Grande; }
+  .applicationContainer .courseContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; }
+    .applicationContainer .courseContainer .course {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 30%;
+      border-radius: 1em;
+      background-color: rgba(0, 0, 0, 0.05);
+      margin: 10px 0px 20px 0px; }
+      .applicationContainer .courseContainer .course h1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        height: 30px;
+        margin: 10px;
+        background: #2aabe2;
+        color: white;
+        border-radius: 2em;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Lucida Grande; }
+      .applicationContainer .courseContainer .course img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%; }
+      .applicationContainer .courseContainer .course .courseInfo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: 10px; }
+        .applicationContainer .courseContainer .course .courseInfo p {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 30px;
+          width: 45%;
+          background: #2aabe2;
+          color: white;
+          border-radius: 2em;
+          padding: 5px 10px;
+          margin: 3px; }
+      .applicationContainer .courseContainer .course button {
+        border: none;
+        outline: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        width: 45%;
+        background: #88CE02;
+        color: white;
+        border-radius: 2em;
+        padding: 5px 10px;
+        margin: 3px 0px 10px 0px;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        font-family: Lucida Grande; }
+
+.choiceContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  color: #2aabe2;
+  font-size: 36px;
+  font-weight: bold; }
+  .choiceContainer .dallasChoice {
+    position: relative;
+    height: 100%;
+    width: 33%;
+    overflow: hidden; }
+    .choiceContainer .dallasChoice .dallasChoiceContent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      background-image: url("http://media.istockphoto.com/photos/the-reunion-tower-in-dallas-texas-usa-picture-id637394360?k=6&m=637394360&s=612x612&w=0&h=DgvMkZHKmRjFYlA5WgxGkn7nlFTntsWxM5CC8IniN-A=");
+      background-size: cover;
+      background-position: center; }
+  .choiceContainer .provoChoice {
+    position: relative;
+    height: 100%;
+    width: 33%;
+    overflow: hidden; }
+    .choiceContainer .provoChoice .provoChoiceContent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      background-image: url("https://s-media-cache-ak0.pinimg.com/736x/98/b3/31/98b331a6197902e3f8c3058433f6f3a2.jpg");
+      background-size: cover;
+      background-position: center; }
+  .choiceContainer .slcChoice {
+    position: relative;
+    height: 100%;
+    width: 33%;
+    overflow: hidden; }
+    .choiceContainer .slcChoice .slcChoiceContent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      background-image: url("https://s-media-cache-ak0.pinimg.com/736x/fc/fa/5a/fcfa5ac1267d8ef0302b776e28683362.jpg");
+      background-size: cover;
+      background-position: center; }
+  .choiceContainer .animationBoxBlue {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 200%;
+    background: #2aabe2;
+    left: -25%; }
+  .choiceContainer .animationBoxWhite {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 200%;
+    background: white;
+    left: -25%; }
+
+.courseSurveyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.upDown {
+  display: flex;
+  position: fixed;
+  right: 20px;
+  bottom: 0;
+  width: 50px;
+  height: 30px; }
+
+.arrowContainer {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid white;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 5px; }
+
+.upIcon {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg); }
+
+.downIcon {
+  margin-bottom: 12px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg); }
+
+/*# sourceMappingURL=maps/styles.css.map */

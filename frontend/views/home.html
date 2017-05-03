@@ -1,0 +1,21 @@
+<video id="homeBgVid" playsinline autoplay muted loop>
+  <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
+</video>
+
+<div class="transitionWhite"></div>
+<div class="transitionBlue"></div>
+
+<div transition-in class="homeContainer">
+  <div class="homeTitle">
+      <h1>Dev <br> Mountain</h1>
+      <h6>Programming Bootcamp</h6>
+  </div>
+  <div class="homeCircleContainer">
+    <div ng-click="switchApply()" transition-out class="homeSmallCircle">
+      <h3>Apply Now!</h3>
+    </div>
+    <div ng-click="switchExperience()" transition-out class="homeBigCircle">
+      <h3>See<br>The DevMountain<br>Experience!</h3>
+    </div>
+  </div>
+</div>

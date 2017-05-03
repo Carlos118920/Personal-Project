@@ -1,0 +1,25 @@
+<div class="transitionWhite"></div>
+<div class="transitionBlue"></div>
+
+<div transition-in class="applicationContainer">
+  <div class="devMountainTimelineContainer">
+    <h3>Application Process</h3>
+    <img class="devMountainTimeline" src="https://s3.amazonaws.com/devmountain/www/img/timeline.png">
+  </div>
+  <div class="applicationTitle">
+    <h1>COURSES</h1>
+  </div>
+  <ul class="courseContainer">
+    <li ng-repeat="course in courses" class="course">
+      <h1>{{course.location}}</h1>
+      <img src="{{course.image}}" alt="DevMountain Location">
+      <div class="courseInfo">
+        <p>{{course.type}}</p>
+        <p>{{course.immersiveorafterhours}}</p>
+        <p>{{course.datestart}} - {{course.dateend}}</p>
+        <p>${{course.price}}</p>
+      </div>
+      <button transition-out ng-click="surveySwitch(course.id)">APPLY</button>
+    </li>
+  </ul>
+</div>
