@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great|Sacramento");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -45,7 +46,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-@import url("https://fonts.googleapis.com/css?family=League+Script|Muli:600");
 html {
   box-sizing: border-box; }
 
@@ -180,13 +180,15 @@ html {
       display: flex;
       position: relative;
       align-items: center;
+      color: white;
+      font-family: "Fredericka the Great", cursive;
       justify-content: center;
       text-align: center;
       background: transparent;
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      border: 3px solid white; }
+      border: 3px solid #2aabe2; }
     .homeContainer .homeCircleContainer .homeBigCircle:before {
       content: " ";
       position: absolute;
@@ -196,8 +198,10 @@ html {
       left: -8px;
       right: 2px;
       bottom: 2px;
-      border: 3px solid white; }
+      border: 3px solid #2aabe2; }
     .homeContainer .homeCircleContainer .homeSmallCircle {
+      color: white;
+      font-family: "Fredericka the Great", cursive;
       position: relative;
       display: flex;
       align-items: center;
@@ -208,7 +212,7 @@ html {
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      border: 3px solid white; }
+      border: 3px solid #2aabe2; }
     .homeContainer .homeCircleContainer .homeSmallCircle:before {
       content: " ";
       position: absolute;
@@ -218,7 +222,7 @@ html {
       left: -8px;
       right: 2px;
       bottom: 2px;
-      border: 3px solid white; }
+      border: 3px solid #2aabe2; }
 
 .applicationContainer {
   display: flex;
@@ -321,16 +325,25 @@ html {
   width: 100%;
   height: 100vh;
   display: flex;
+  justify-content: space-around;
   overflow: hidden;
   color: #2aabe2;
-  font-size: 36px;
+  font-size: 40px;
   font-weight: bold; }
+  .choiceContainer p {
+    width: 100%;
+    padding: 20px 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center; }
   .choiceContainer .dallasChoice {
     position: relative;
     height: 100%;
     width: 33%;
     overflow: hidden; }
     .choiceContainer .dallasChoice .dallasChoiceContent {
+      font-family: "Sacramento", cursive;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -345,6 +358,7 @@ html {
     width: 33%;
     overflow: hidden; }
     .choiceContainer .provoChoice .provoChoiceContent {
+      font-family: "Sacramento", cursive;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -359,6 +373,7 @@ html {
     width: 33%;
     overflow: hidden; }
     .choiceContainer .slcChoice .slcChoiceContent {
+      font-family: "Sacramento", cursive;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -367,25 +382,225 @@ html {
       background-image: url("https://s-media-cache-ak0.pinimg.com/736x/fc/fa/5a/fcfa5ac1267d8ef0302b776e28683362.jpg");
       background-size: cover;
       background-position: center; }
-  .choiceContainer .animationBoxBlue {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 200%;
-    background: #2aabe2;
-    left: -25%; }
-  .choiceContainer .animationBoxWhite {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 200%;
-    background: white;
-    left: -25%; }
+
+.animationBoxBlue {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 200%;
+  background: #2aabe2;
+  left: -25%; }
+
+.animationBoxWhite {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 200%;
+  background: white;
+  left: -25%; }
 
 .courseSurveyContainer {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center; }
+  .courseSurveyContainer h1 {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Lucida Grande;
+    margin: 30px 0px 10px 0px; }
+  .courseSurveyContainer .course {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    border-radius: 1em;
+    background-color: rgba(0, 0, 0, 0.05);
+    margin: 10px 0px 20px 0px; }
+    .courseSurveyContainer .course h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+      height: 30px;
+      margin: 10px;
+      background: #2aabe2;
+      color: white;
+      border-radius: 2em;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: Lucida Grande; }
+    .courseSurveyContainer .course img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%; }
+    .courseSurveyContainer .course .courseInfo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 90%;
+      margin: 10px; }
+      .courseSurveyContainer .course .courseInfo p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        width: 45%;
+        background: #2aabe2;
+        color: white;
+        border-radius: 2em;
+        padding: 5px 10px;
+        margin: 3px; }
+  .courseSurveyContainer button {
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 300px;
+    background: red;
+    color: white;
+    border-radius: 2em;
+    padding: 5px 10px;
+    margin: 3px 0px 10px 0px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: Lucida Grande; }
+  .courseSurveyContainer .submit {
+    background: #88ce02;
+    margin: 20px; }
+  .courseSurveyContainer .survey {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .courseSurveyContainer .survey .question {
+      background-color: rgba(0, 0, 0, 0.05);
+      width: 60%;
+      margin: 10px 0px 10px 0px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 0.5em; }
+      .courseSurveyContainer .survey .question textarea {
+        width: 500px;
+        height: 100px;
+        margin: 10px; }
+      .courseSurveyContainer .survey .question .radioOption {
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+    .courseSurveyContainer .survey .submitContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+
+.welcomeToProvoContainer {
+  position: fixed;
+  display: flex;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-image: url("https://seekraz.files.wordpress.com/2013/04/cedar-fort-farmland-under-wasatch-mountains-with-snow.jpg");
+  background-position: center;
+  background-size: cover; }
+  .welcomeToProvoContainer .provoTitle {
+    position: absolute;
+    top: 50%;
+    transform: translate(0 -50%);
+    width: 60%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .welcomeToProvoContainer .provoTitle h1 {
+      justify-content: center;
+      color: #2aabe2;
+      font-size: 80px;
+      font-family: "Sacramento", cursive;
+      margin-top: 10px; }
+    .welcomeToProvoContainer .provoTitle h2 {
+      font-family: "Fredericka the Great", cursive;
+      font-size: 20px;
+      color: white; }
+  .welcomeToProvoContainer .welcomeToProvoStats {
+    width: 40%;
+    background: rgba(0, 0, 0, 0.25);
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; }
+    .welcomeToProvoContainer .welcomeToProvoStats p {
+      position: relative;
+      font-family: "Fredericka the Great", cursive;
+      border: 3px solid #2aabe2;
+      height: 100px;
+      width: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.25);
+      color: white; }
+    .welcomeToProvoContainer .welcomeToProvoStats p:after {
+      content: " ";
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: 2px;
+      bottom: 2px;
+      border: 3px solid #2aabe2; }
+
+.provoHousingContainer {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  overflow: hidden; }
+  .provoHousingContainer .housingTopHalf {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 60%; }
+    .provoHousingContainer .housingTopHalf video {
+      height: 100%;
+      width: 50%; }
+    .provoHousingContainer .housingTopHalf .housingTitle {
+      width: 50%;
+      height: 95%;
+      margin: 10px 0px;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      .provoHousingContainer .housingTopHalf .housingTitle h1 {
+        font-size: 80px;
+        font-family: "Sacramento", cursive;
+        color: #2aabe2;
+        margin-top: 10px; }
+      .provoHousingContainer .housingTopHalf .housingTitle h2 {
+        font-size: 32px;
+        font-family: "Fredericka the Great", cursive;
+        color: white; }
+  .provoHousingContainer .housingBottomHalf {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; }
+    .provoHousingContainer .housingBottomHalf img {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%; }
 
 .upDown {
   display: flex;

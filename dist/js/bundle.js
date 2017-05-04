@@ -22,8 +22,16 @@ angular.module("DME", ["ui.router"]).config(function ($stateProvider, $urlRouter
     url: "/experience/locationchoice",
     templateUrl: "./frontend/views/locationChoice.html",
     controller: "locationChoiceCtrl"
+  }).state("welcomeToProvo", {
+    url: "/experience/welcometoprovo",
+    templateUrl: "./frontend/views/welcomeToProvo.html",
+    controller: "welcomeToProvo"
+  }).state("provoHousing", {
+    url: "/experience/provohousing",
+    templateUrl: "./frontend/views/provoHousing.html",
+    controller: "provoHousing"
   });
-  // $urlRouterProvider.otherwise("/");
+  $urlRouterProvider.otherwise("/");
 });
 "use strict";
 
@@ -74,14 +82,13 @@ angular.module("DME").controller("homeCtrl", function ($scope, $timeout, $locati
 });
 "use strict";
 
-angular.module("DME").controller("locationChoiceCtrl", function ($scope, mainSrv) {
-
-  TweenMax.staggerTo(".animationBoxWhite", 0.50, { top: "100%" }, 0.25);
-  TweenMax.staggerTo(".animationBoxWhite", 0.20, { transform: "rotate(15deg)" }, 0.25);
-  TweenMax.staggerTo(".animationBoxWhite", 0.30, { delay: 0.20, transform: "rotate(0deg)" }, 0.25);
-  TweenMax.staggerTo(".animationBoxBlue", 0.50, { delay: 0.10, top: "100%" }, 0.25);
-  TweenMax.staggerTo(".animationBoxBlue", 0.20, { delay: 0.10, transform: "rotate(15deg)" }, 0.25);
-  TweenMax.staggerTo(".animationBoxBlue", 0.30, { delay: 0.30, transform: "rotate(0deg)" }, 0.25);
+angular.module("DME").controller("locationChoiceCtrl", function ($scope, $timeout, $location, mainSrv) {
+  $scope.switchProvo = function () {
+    $timeout(function () {
+      $location.path("experience/welcometoprovo");
+      $scope.$apply();
+    }, 1075);
+  };
 });
 "use strict";
 
@@ -102,6 +109,12 @@ angular.module("DME").controller("mainCtrl", function ($scope, mainSrv) {
   //   $scope.$apply();
   // };
 });
+"use strict";
+
+angular.module("DME").controller("provoHousing", function ($scope, $timeout, $location, mainSrv) {});
+"use strict";
+
+angular.module("DME").controller("welcomeToProvo", function ($scope, $stateParams, $timeout, $location, mainSrv) {});
 "use strict";
 
 angular.module("DME").directive("loading", function ($location) {
@@ -138,6 +151,23 @@ angular.module("DME").directive("transitionIn", function ($location, $timeout) {
 });
 "use strict";
 
+angular.module("DME").directive("transitionInMultiple", function ($location, $timeout) {
+  return {
+    restrict: "A",
+    link: function link(scope, element, attributes) {
+      $timeout(function () {
+        TweenMax.staggerTo(".animationBoxWhite", 0.50, { top: "100%" }, 0.25);
+        TweenMax.staggerTo(".animationBoxWhite", 0.20, { transform: "rotate(15deg)" }, 0.25);
+        TweenMax.staggerTo(".animationBoxWhite", 0.30, { delay: 0.20, transform: "rotate(0deg)" }, 0.25);
+        TweenMax.staggerTo(".animationBoxBlue", 0.50, { delay: 0.10, top: "100%" }, 0.25);
+        TweenMax.staggerTo(".animationBoxBlue", 0.20, { delay: 0.10, transform: "rotate(15deg)" }, 0.25);
+        TweenMax.staggerTo(".animationBoxBlue", 0.30, { delay: 0.30, transform: "rotate(0deg)" }, 0.25);
+      }, 100);
+    }
+  };
+});
+"use strict";
+
 angular.module("DME").directive("transitionOut", function ($location, $timeout) {
   return {
     restrict: "A",
@@ -149,6 +179,23 @@ angular.module("DME").directive("transitionOut", function ($location, $timeout) 
         TweenMax.to(".transitionWhite", 0.50, { delay: 0.10, top: 0 });
         TweenMax.to(".transitionWhite", 0.20, { delay: 0.10, transform: "rotate(15deg)" });
         TweenMax.to(".transitionWhite", 0.30, { delay: 0.30, transform: "rotate(0deg)" });
+      });
+    }
+  };
+});
+"use strict";
+
+angular.module("DME").directive("transitionOutMultiple", function ($location, $timeout) {
+  return {
+    restrict: "A",
+    link: function link(scope, element, attributes) {
+      element.on("click", function () {
+        TweenMax.staggerTo(".animationBoxBlue", 0.50, { top: 0 }, 0.25);
+        TweenMax.staggerTo(".animationBoxBlue", 0.20, { transform: "rotate(15deg)" }, 0.25);
+        TweenMax.staggerTo(".animationBoxBlue", 0.30, { delay: 0.20, transform: "rotate(0deg)" }, 0.25);
+        TweenMax.staggerTo(".animationBoxWhite", 0.50, { delay: 0.10, top: 0 }, 0.25);
+        TweenMax.staggerTo(".animationBoxWhite", 0.20, { delay: 0.10, transform: "rotate(15deg)" }, 0.25);
+        TweenMax.staggerTo(".animationBoxWhite", 0.30, { delay: 0.30, transform: "rotate(0deg)" }, 0.25);
       });
     }
   };

@@ -1,7 +1,7 @@
-<div class="choiceContainer">
+<div transition-in-multiple class="choiceContainer">
   <div class="dallasChoice">
-    <div transition-out class="dallasChoiceContent">
-      <p>Dallas, TX</p>
+    <div transition-out-multiple class="dallasChoiceContent">
+      <p>Dallas, Texas</p>
     </div>
     <div class="animationBoxBlue">
 
@@ -10,9 +10,9 @@
 
     </div>
   </div>
-  <div class="provoChoice">
-    <div transition-out class="provoChoiceContent">
-      <p>Provo, UT</p>
+  <div ng-click="switchProvo()" class="provoChoice">
+    <div transition-out-multiple class="provoChoiceContent">
+      <p>Provo, Utah</p>
     </div>
     <div class="animationBoxBlue">
 
@@ -22,8 +22,8 @@
     </div>
   </div>
   <div class="slcChoice">
-    <div transition-out class="slcChoiceContent">
-      <p>Salt Lake City, UT</p>
+    <div transition-out-multiple class="slcChoiceContent">
+      <p>Salt Lake City, Utah</p>
     </div>
     <div class="animationBoxBlue">
 
@@ -31,5 +31,13 @@
     <div class="animationBoxWhite">
 
     </div>
+  </div>
+</div>
+<div class="upDown">
+  <div transition-out-multiple class="arrowContainer">
+    <i class="arrow upIcon"></i>
+  </div>
+  <div transition-out-multiple class="arrowContainer">
+    <i class="arrow downIcon"></i>
   </div>
 </div>

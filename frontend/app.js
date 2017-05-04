@@ -25,5 +25,15 @@ angular.module("DME", ["ui.router"]).config(function($stateProvider, $urlRouterP
       templateUrl: "./frontend/views/locationChoice.html",
       controller: "locationChoiceCtrl"
     })
-    // $urlRouterProvider.otherwise("/");
+    .state("welcomeToProvo", {
+      url: "/experience/welcometoprovo",
+      templateUrl: "./frontend/views/welcomeToProvo.html",
+      controller: "welcomeToProvo"
+    })
+    .state("provoHousing", {
+      url: "/experience/provohousing",
+      templateUrl: "./frontend/views/provoHousing.html",
+      controller: "provoHousing"
+    })
+    $urlRouterProvider.otherwise("/");
   })
