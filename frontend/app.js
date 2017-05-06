@@ -35,5 +35,20 @@ angular.module("DME", ["ui.router"]).config(function($stateProvider, $urlRouterP
       templateUrl: "./frontend/views/provoHousing.html",
       controller: "provoHousing"
     })
+    .state("learn", {
+      url: "/experience/learn",
+      templateUrl: "./frontend/views/learn.html",
+      controller: "learnCtrl"
+    })
+    .state("jobSearch", {
+      url: "/experience/jobsearch",
+      templateUrl: "./frontend/views/jobSearch.html",
+      controller: "jobSearchCtrl"
+    })
+    .state("apply", {
+      url: "/experience/apply",
+      templateUrl: "./frontend/views/apply.html",
+      controller: "applyCtrl"
+    })
     $urlRouterProvider.otherwise("/");
   })

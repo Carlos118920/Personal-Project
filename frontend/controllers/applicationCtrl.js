@@ -4,7 +4,6 @@ angular.module("DME").controller("applicationCtrl", function($scope, $timeout, $
     })
   $scope.surveySwitch = (id) => {
     $timeout( () => {
-      console.log(id)
       $location.path("coursesurvey/" + id);
       $scope.$apply();
     }, 700);

@@ -1,29 +1,30 @@
-<video id="homeBgVid" playsinline autoplay muted loop>
+<video class="bgVid" playsinline autoplay muted loop>
   <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
 </video>
 
-<div class="transitionWhite"></div>
-<div class="transitionBlue"></div>
-
-<div transition-in class="homeContainer">
+<div transition-in-multiple class="homeContainer">
   <div class="homeTitle">
       <h1>Dev <br> Mountain</h1>
       <h6>Programming Bootcamp</h6>
   </div>
   <div class="homeCircleContainer">
-    <div ng-click="switchApply()" transition-out class="homeSmallCircle">
+    <div ng-click="switchApply()" transition-out-multiple class="homeSmallCircle">
       <h3>Apply Now!</h3>
     </div>
-    <div ng-click="switchExperience()" transition-out class="homeBigCircle">
-      <h3>See<br>The DevMountain<br>Experience!</h3>
+    <div ng-click="switchExperience()" transition-out-multiple class="homeBigCircle">
+      <h3>See The</h3>
+      <h2>DevMountain</h2>
+      <h3>Experience!</h3>
     </div>
   </div>
+  <div class="animationBoxBlue"></div>
+  <div class="animationBoxWhite"></div>
 </div>
 <div class="upDown">
   <div class="arrowContainer">
     <i class="arrow upIcon"></i>
   </div>
-  <div ng-click="switchExperience()" transition-out class="arrowContainer">
+  <div ng-click="switchExperience()" transition-out-multiple class="arrowContainer">
     <i class="arrow downIcon"></i>
   </div>
 </div>

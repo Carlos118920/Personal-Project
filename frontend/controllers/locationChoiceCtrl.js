@@ -5,4 +5,10 @@ angular.module("DME").controller("locationChoiceCtrl", function($scope, $timeout
       $scope.$apply();
     }, 1075);
   };
+  $scope.switchHome = () => {
+    $timeout(() => {
+      $location.path("home");
+      $scope.$apply();
+    }, 1075);
+  };
 })

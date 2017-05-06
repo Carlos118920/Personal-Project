@@ -1,4 +1,3 @@
-
 $primaryColor: rgb(42, 171, 226);
 $primaryFont: 'Sacramento', cursive;
 $secondaryFont: 'Fredericka the Great', cursive;
@@ -101,7 +100,7 @@ html {
 }
 
 
-#homeBgVid{
+.bgVid{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -152,10 +151,15 @@ html {
     width: 500px;
     height: 200px;
     letter-spacing: 1px;
-
     h1{
-      font-size: 50px;
+      font-family: $primaryFont;
+      font-size: 100px;
       margin-bottom: 20px;
+    }
+    h6{
+      font-family: $secondaryFont;
+      font-size: 20px;
+      color: white;
     }
   }
 
@@ -165,10 +169,10 @@ html {
     letter-spacing: 1px;
     .homeBigCircle{
       display: flex;
+      flex-direction: column;
       position: relative;
       align-items: center;
       color: white;
-      font-family: $secondaryFont;
       justify-content: center;
       text-align: center;
       background: transparent;
@@ -176,6 +180,16 @@ html {
       height: 300px;
       border-radius: 50%;
       border: 3px solid $primaryColor;
+      h3{
+        font-family: $secondaryFont;
+        font-size: 18px;
+      }
+      h2{
+        margin: 10px;
+        font-family: $primaryFont;
+        font-size: 40px;
+        color: $primaryColor;
+      }
     }
     .homeBigCircle:before {
       content: " ";
@@ -398,15 +412,15 @@ html {
 .animationBoxBlue{
   position: absolute;
   top: 0;
-  height: 100%;
-  width: 200%;
+  height: 110%;
+  width: 150%;
   background: $primaryColor;
   left: -25%;
 }
 .animationBoxWhite{
   position: absolute;
   top: 0;
-  height: 100%;
+  height: 110%;
   width: 200%;
   background: white;
   left: -25%;
@@ -550,12 +564,23 @@ html {
       color: $primaryColor;
       font-size: 80px;
       font-family: $primaryFont;
-      margin-top: 10px;
+      margin: 10px 0px;
     }
     h2{
       font-family: $secondaryFont;
       font-size: 20px;
       color: white;
+    }
+    h3{
+      margin-top: 10px;
+      font-family: $primaryFont;
+      font-size: 30px;
+      color: $primaryColor;
+    }
+    h4{
+      font-family: $secondaryFont;
+      font-size: 14px;
+      color: white
     }
   }
   .welcomeToProvoStats{
@@ -604,14 +629,29 @@ html {
     justify-content: space-around;
     width: 100%;
     height: 60%;
-    video{
+    .housingVideo{
       height: 100%;
       width: 50%;
+      overflow: hidden;
+      position: relative;
+      video{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -50;
+        transform: translateX(-50%) translateY(-50%);
+        transition: 2s opacity;
+      }
     }
     .housingTitle{
       width: 50%;
-      height: 95%;
-      margin: 10px 0px;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
       background: rgba(0,0,0,0.50);
       display: flex;
       flex-direction: column;
@@ -636,21 +676,394 @@ html {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    img{
+    .housingImage{
+      overflow: hidden;
+      position: relative;
       height: 200px;
       width: 200px;
       border-radius: 50%;
+      img{
+        border-radius: 50%;
+        border: 1px solid white;
+        width: 100%;
+        height: 100%;
+      }
     }
+  }
+}
+
+.learnContainer{
+  height: 100vh;
+  width: 100%;
+  background: gray;
+  position: relative;
+  top: 0;
+  overflow: hidden;
+  .learnSlides{
+    background: gray;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0px;
+    left: 0px;
+    font-size: 80px;
+    text-align: center;
+    h1{
+      color: $primaryColor;
+      font-size: 80px;
+      font-family: $primaryFont;
+      margin: 10px;
+    }
+    h2{
+      color: white;
+      font-size: 20px;
+      font-family: $secondaryFont;
+    }
+  }
+  .day1{
+
+  }
+  .week1{
+
+  }
+  .week2{
+
+  }
+  .week34{
+
+  }
+  .week5{
+
+  }
+  .week6{
+
+  }
+  .week7{
+
+  }
+  .week89{
+
+  }
+  .week10{
+
+  }
+  .week1112{
+
+  }
+  .week13{
+
+  }
+  .nextSlide{
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+  .prevSlide{
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  .nextSlide:hover{
+    cursor: url("http://www.nexterior.net/media/up.png");
+  }
+  .prevSlide:hover{
+    cursor: url("http://www.iconsdb.com/icons/preview/white/left-round-xxl.png"), auto;
+  }
+}
+
+.jobSearchContainer{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  color: white;
+  overflow: hidden;
+  background: rgba(0,0,0,0.80);
+  .bubble{
+    opacity: 0;
+    position: fixed;
+    overflow: hidden;
+    border-radius: 50%;
+    background: $primaryColor;
+  }
+  .bubble:nth-of-type(1){
+    height: 8px;
+    width: 8px;
+    bottom: 0.5%;
+    left: 50%;
+  }
+  .bubble:nth-of-type(2){
+    height: 14px;
+    width: 14px;
+    bottom: 2%;
+    left: 49%;
+  }
+  .bubble:nth-of-type(3){
+    height: 20px;
+    width: 20px;
+    bottom: 5%;
+    left: 51%;
+  }
+  .salaryBubble{
+    left: 45%;
+    bottom: 5%;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .bubble:nth-of-type(5){
+    height: 28px;
+    width: 28px;
+    bottom: 14%;
+    left: 52%;
+  }
+  .bubble:nth-of-type(6){
+    height: 36px;
+    width: 36px;
+    bottom: 22%;
+    left: 44%;
+  }
+  .hireRateBubble{
+    font-size: 20px;
+    right: 40%;
+    bottom: 20%;
+    position: fixed;
+    overflow: hidden;
+    height: 120px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+      height: 50px;
+      width: 50px;
+    }
+  }
+  .bubble:nth-of-type(8){
+    height: 45px;
+    width: 45px;
+    bottom: 41%;
+    left: 53%;
+  }
+  .timeBubble{
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 35%;
+    bottom: 30%;
+    position: fixed;
+    overflow: hidden;
+    height: 160px;
+    width: 160px;
+    img{
+      width: 100px;
+      height: 100px;
+    }
+  }
+  .bubble:nth-of-type(10){
+    height: 50px;
+    width: 50px;
+    bottom: 55%;
+    left: 43%;
+  }
+  .bubble:nth-of-type(11){
+    height: 60px;
+    width: 60px;
+    bottom: 60%;
+    left: 35%;
+  }
+  .jobFairBubble{
+    font-size: 34px;
+    bottom: 50%;
+    right: 35%;
+    position: fixed;
+    overflow: hidden;
+    height: 220px;
+    width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img{
+      margin-top: 20px;
+      margin-left: 5px;
+      height: 130px;
+      width: 130px;
+    }
+  }
+  .titleBubble{
+    position: fixed;
+    overflow: hidden;
+    height: 300px;
+    width: 300px;
+    top: 0;
+    left: 25%;
+    display: flex;
+    transform: translate(0, -45%);
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 5px solid white;
+    h1{
+      font-size: 60px;
+      font-family: $primaryFont;
+      position: absolute;
+      bottom: 25%;
+    }
+  }
+  .bubble:nth-of-type(14){
+    height: 65px;
+    width: 65px;
+    bottom: 86%;
+    left: 58%;
+  }
+  .bubble:nth-of-type(15){
+    height: 15px;
+    width: 15px;
+    bottom: 86%;
+    left: 65%;
+  }
+  .bubble:nth-of-type(16){
+    height: 30px;
+    width: 30px;
+    bottom: 90%;
+    left: 69%;
+  }
+  .info{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid $primaryColor;
+    color: white;
+    padding: 12px 20px 20px 20px;
+    font-family: $secondaryFont;
+    font-size: 16px;
+    text-align: center;
+    width: 325px;
+  }
+  .info:after{
+    content: " ";
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: 2px;
+    bottom: 2px;
+    border: 3px solid $primaryColor;
+  }
+  .salaryInfo{
+    bottom: 6%;
+    left: 3%;
+  }
+  .hireRateInfo{
+    bottom: 22%;
+    right: 3%;
+  }
+  .timeInfo{
+    bottom: 35%;
+    left: 3%;
+  }
+  .jobFairInfo{
+    bottom: 59%;
+    right: 3%;
+  }
+  .line{
+    border-top: 3px solid $primaryColor;
+    border-bottom: 3px solid $primaryColor;
+    position: fixed;
+    padding-top: 3px;
+    background: transparent;
+  }
+  .connectingLine1{
+    bottom: 10%;
+    left: 28.5%;
+    width: 210px;
+  }
+  .connectingLine2{
+    bottom: 28.5%;
+    right: 28.5%;
+    width: 145px;
+  }
+  .connectingLine3{
+    bottom: 41%;
+    left: 28.5%;
+    width: 81px;
+  }
+  .connectingLine4{
+    bottom: 65.5%;
+    right: 28.5%;
+    width: 81px;
+  }
+}
+
+.applyContainer{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  img{
+    width: 600px;
+  }
+  .experienceApplyButton{
+    color: white;
+    background: rgba(0,0,0,0.25);
+    font-family: $primaryFont;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 30px;
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    border: 3px solid $primaryColor;
+  }
+
+  .experienceApplyButton:after{
+    content: " ";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.25);
+    z-index: -1;
+    top: -8px;
+    left: -8px;
+    right: 2px;
+    bottom: 2px;
+    border: 3px solid $primaryColor;
   }
 }
 
 .upDown{
   display: flex;
   position: fixed;
+  background: rgba(0,0,0,0.50);
   right: 20px;
   bottom: 0;
   width: 50px;
   height: 30px;
+  z-index: 500;
 }
 .arrowContainer{
   height: 100%;
