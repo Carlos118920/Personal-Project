@@ -3,12 +3,12 @@ angular.module("DME").controller("locationChoiceCtrl", function($scope, $timeout
     $timeout(() => {
       $location.path("experience/welcometoprovo");
       $scope.$apply();
-    }, 1075);
+    }, 1200);
   };
-  $scope.switchHome = () => {
+  $scope.switchUp = () => {
     $timeout(() => {
       $location.path("home");
       $scope.$apply();
-    }, 1075);
+    }, 1200);
   };
 })

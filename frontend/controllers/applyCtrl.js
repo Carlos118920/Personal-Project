@@ -1,5 +1,5 @@
 angular.module("DME").controller("applyCtrl", function($scope, $timeout, $location, mainSrv){
-  $scope.switchJobSearch = () => {
+  $scope.switchUp = () => {
     $timeout(() => {
       $location.path("experience/jobsearch");
       $scope.$apply();

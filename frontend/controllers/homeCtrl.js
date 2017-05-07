@@ -6,7 +6,7 @@ angular.module("DME").controller("homeCtrl", function($scope, $timeout, $locatio
       $scope.$apply();
     }, 700);
   };
-  $scope.switchExperience = () => {
+  $scope.switchDown = () => {
     $timeout(() => {
       $location.path("experience/locationchoice");
       $scope.$apply();

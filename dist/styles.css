@@ -48,7 +48,8 @@ table {
   border-spacing: 0; }
 
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  overflow: hidden; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
@@ -659,22 +660,32 @@ html {
     height: 100%;
     position: absolute;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
     top: 0px;
     left: 0px;
     font-size: 80px;
     text-align: center; }
     .learnContainer .learnSlides h1 {
       color: #2aabe2;
-      font-size: 80px;
+      font-size: 60px;
       font-family: "Sacramento", cursive;
       margin: 10px; }
     .learnContainer .learnSlides h2 {
       color: white;
-      font-size: 20px;
+      font-size: 15px;
       font-family: "Fredericka the Great", cursive; }
+  .learnContainer .slideSection {
+    width: 32%;
+    height: 31%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    .learnContainer .slideSection img {
+      height: 100%;
+      width: 100%; }
   .learnContainer .nextSlide {
     height: 100%;
     width: 50%;

@@ -61,7 +61,7 @@ angular.module("DME").controller("applicationCtrl", function ($scope, $timeout, 
 "use strict";
 
 angular.module("DME").controller("applyCtrl", function ($scope, $timeout, $location, mainSrv) {
-  $scope.switchJobSearch = function () {
+  $scope.switchUp = function () {
     $timeout(function () {
       $location.path("experience/jobsearch");
       $scope.$apply();
@@ -100,7 +100,7 @@ angular.module("DME").controller("homeCtrl", function ($scope, $timeout, $locati
       $scope.$apply();
     }, 700);
   };
-  $scope.switchExperience = function () {
+  $scope.switchDown = function () {
     $timeout(function () {
       $location.path("experience/locationchoice");
       $scope.$apply();
@@ -110,13 +110,13 @@ angular.module("DME").controller("homeCtrl", function ($scope, $timeout, $locati
 "use strict";
 
 angular.module("DME").controller("jobSearchCtrl", function ($scope, $timeout, $location, mainSrv) {
-  $scope.switchLearn = function () {
+  $scope.switchUp = function () {
     $timeout(function () {
       $location.path("experience/learn");
       $scope.$apply();
     }, 700);
   };
-  $scope.switchApply = function () {
+  $scope.switchDown = function () {
     $timeout(function () {
       $location.path("experience/apply");
       $scope.$apply();
@@ -126,41 +126,17 @@ angular.module("DME").controller("jobSearchCtrl", function ($scope, $timeout, $l
 "use strict";
 
 angular.module("DME").controller("learnCtrl", function ($scope, $timeout, $location, mainSrv) {
-  var $slides = $(".learnSlides");
-  var currentSlide = 0;
-  TweenMax.set($slides.filter(":gt(0)"), { left: "100%" });
-
-  $scope.nextSlide = function () {
-    TweenMax.to($slides.eq(currentSlide), 1, { left: "-100%" });
-    if (currentSlide < $slides.length - 1) {
-      currentSlide++;
-    } else {
-      currentSlide = 0;
-    }
-    TweenMax.fromTo($slides.eq(currentSlide), 1, { left: "100%" }, { left: "0px" });
-  };
-
-  $scope.prevSlide = function () {
-    TweenMax.to($slides.eq(currentSlide), 1, { left: "100%" });
-    if (currentSlide > 0) {
-      currentSlide--;
-    } else {
-      currentSlide = $slides.length - 1;
-    }
-    TweenMax.fromTo($slides.eq(currentSlide), 1, { left: "-100%" }, { left: "0px" });
-  };
-
-  $scope.switchHousing = function () {
+  $scope.switchUp = function () {
     $timeout(function () {
       $location.path("experience/provohousing");
       $scope.$apply();
-    }, 1075);
+    }, 700);
   };
-  $scope.switchJobSearch = function () {
+  $scope.switchDown = function () {
     $timeout(function () {
       $location.path("experience/jobsearch");
       $scope.$apply();
-    }, 1075);
+    }, 700);
   };
 });
 "use strict";
@@ -170,13 +146,13 @@ angular.module("DME").controller("locationChoiceCtrl", function ($scope, $timeou
     $timeout(function () {
       $location.path("experience/welcometoprovo");
       $scope.$apply();
-    }, 1075);
+    }, 1200);
   };
-  $scope.switchHome = function () {
+  $scope.switchUp = function () {
     $timeout(function () {
       $location.path("home");
       $scope.$apply();
-    }, 1075);
+    }, 1200);
   };
 });
 "use strict";
@@ -201,29 +177,29 @@ angular.module("DME").controller("mainCtrl", function ($scope, mainSrv) {
 "use strict";
 
 angular.module("DME").controller("provoHousing", function ($scope, $timeout, $location, mainSrv) {
-  $scope.switchWelcome = function () {
+  $scope.switchUp = function () {
     $timeout(function () {
       $location.path("experience/welcometoprovo");
       $scope.$apply();
-    }, 1700);
+    }, 2000);
   };
-  $scope.switchLearn = function () {
+  $scope.switchDown = function () {
     $timeout(function () {
       $location.path("experience/learn");
       $scope.$apply();
-    }, 1700);
+    }, 2000);
   };
 });
 "use strict";
 
 angular.module("DME").controller("welcomeToProvo", function ($scope, $stateParams, $timeout, $location, mainSrv) {
-  $scope.switchHousing = function () {
+  $scope.switchDown = function () {
     $timeout(function () {
       $location.path("experience/provohousing");
       $scope.$apply();
     }, 700);
   };
-  $scope.switchChoice = function () {
+  $scope.switchUp = function () {
     $timeout(function () {
       $location.path("experience/locationchoice");
       $scope.$apply();
@@ -244,6 +220,40 @@ angular.module("DME").directive("bubbleAnimation", function ($location, $timeout
 });
 "use strict";
 
+angular.module("DME").directive("carousel", function ($location) {
+  return {
+    restrict: "A",
+    link: function link(scope, element, attributes) {
+      var $next = $(".nextSlide");
+      var $prev = $(".prevSlide");
+      var $slides = $(".learnSlides");
+      var currentSlide = 0;
+      TweenMax.set($slides.filter(":gt(0)"), { left: "100%" });
+
+      $prev.on("click", function () {
+        TweenMax.to($slides.eq(currentSlide), 1, { left: "100%" });
+        if (currentSlide > 0) {
+          currentSlide--;
+        } else {
+          currentSlide = $slides.length - 1;
+        }
+        TweenMax.fromTo($slides.eq(currentSlide), 1, { left: "-100%" }, { left: "0px" });
+      });
+
+      $next.on("click", function () {
+        TweenMax.to($slides.eq(currentSlide), 1, { left: "-100%" });
+        if (currentSlide < $slides.length - 1) {
+          currentSlide++;
+        } else {
+          currentSlide = 0;
+        }
+        TweenMax.fromTo($slides.eq(currentSlide), 1, { left: "100%" }, { left: "0px" });
+      });
+    }
+  };
+});
+"use strict";
+
 angular.module("DME").directive("loading", function ($location) {
   return {
     restrict: "A",
@@ -256,6 +266,62 @@ angular.module("DME").directive("loading", function ($location) {
       TweenMax.to(".loadingAnimationContainer2", 6, { rotation: 720, transformOrigin: "50% 50%", ease: Power0.easeNone });
       TweenMax.to(element, 2, { opacity: 1 });
       TweenMax.to(element, 2, { opacity: 0, delay: 4 });
+    }
+  };
+});
+"use strict";
+
+angular.module("DME").directive("scrollDown", function ($location, $timeout) {
+  return {
+    restrict: "A",
+    link: function link(scope, element, attributes) {
+      $timeout(function () {
+        $(".container").on('wheel', function (e) {
+          var delta = e.originalEvent.deltaY;
+          console.log(delta);
+          if (Math.floor(delta) === 1) {
+            console.log("scroll down was invoked");
+            TweenMax.staggerTo(".animationBoxBlue", 0.50, { top: 0, ease: Power1.easeIn }, 0.25);
+            TweenMax.staggerTo(".animationBoxBlue", 0.20, { transform: "rotate(15deg)", ease: Power1.easeIn }, 0.25);
+            TweenMax.staggerTo(".animationBoxBlue", 0.30, { delay: 0.20, transform: "rotate(0deg)", ease: Power1.easeIn }, 0.25);
+            TweenMax.staggerTo(".animationBoxWhite", 0.50, { delay: 0.15, top: 0, ease: Power1.easeIn }, 0.25);
+            TweenMax.staggerTo(".animationBoxWhite", 0.20, { delay: 0.15, transform: "rotate(15deg)", ease: Power1.easeIn }, 0.25);
+            TweenMax.staggerTo(".animationBoxWhite", 0.30, { delay: 0.35, transform: "rotate(0deg)", ease: Power1.easeIn }, 0.25);
+            delta = 0;
+            scope.switchDown();
+            $(".container").off("wheel");
+          }
+          return false;
+        });
+      }, 1000);
+    }
+  };
+});
+"use strict";
+
+angular.module("DME").directive("scrollUp", function ($location, $timeout) {
+  return {
+    restrict: "A",
+    link: function link(scope, element, attributes) {
+      $timeout(function () {
+        $(".container").on('wheel', function (e) {
+          var delta = e.originalEvent.deltaY;
+          console.log(delta);
+          if (Math.floor(delta) === -1) {
+            console.log("scroll up was invoked");
+            TweenMax.staggerTo(".animationBoxBlue", 0.50, { top: 0, ease: Power1.easeIn }, 0.25);
+            TweenMax.staggerTo(".animationBoxBlue", 0.20, { transform: "rotate(15deg)", ease: Power1.easeIn }, 0.25);
+            TweenMax.staggerTo(".animationBoxBlue", 0.30, { delay: 0.20, transform: "rotate(0deg)", ease: Power1.easeIn }, 0.25);
+            TweenMax.staggerTo(".animationBoxWhite", 0.50, { delay: 0.15, top: 0, ease: Power1.easeIn }, 0.25);
+            TweenMax.staggerTo(".animationBoxWhite", 0.20, { delay: 0.15, transform: "rotate(15deg)", ease: Power1.easeIn }, 0.25);
+            TweenMax.staggerTo(".animationBoxWhite", 0.30, { delay: 0.35, transform: "rotate(0deg)", ease: Power1.easeIn }, 0.25);
+            delta = 0;
+            scope.switchUp();
+            $(".container").off("wheel");
+          }
+          return false;
+        });
+      }, 1000);
     }
   };
 });

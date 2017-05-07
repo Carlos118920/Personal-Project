@@ -1,14 +1,14 @@
 angular.module("DME").controller("provoHousing", function($scope, $timeout, $location, mainSrv){
-  $scope.switchWelcome = () => {
+  $scope.switchUp = () => {
     $timeout(() => {
       $location.path("experience/welcometoprovo");
       $scope.$apply();
-    }, 1700);
+    }, 2000);
   };
-  $scope.switchLearn = () => {
+  $scope.switchDown = () => {
     $timeout(() => {
       $location.path("experience/learn");
       $scope.$apply();
-    }, 1700);
+    }, 2000);
   };
 })

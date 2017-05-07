@@ -4,6 +4,7 @@ $secondaryFont: 'Fredericka the Great', cursive;
 
 html {
   box-sizing: border-box;
+  overflow: hidden;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -705,57 +706,36 @@ html {
     height: 100%;
     position: absolute;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
     top: 0px;
     left: 0px;
     font-size: 80px;
     text-align: center;
     h1{
       color: $primaryColor;
-      font-size: 80px;
+      font-size: 60px;
       font-family: $primaryFont;
       margin: 10px;
     }
     h2{
       color: white;
-      font-size: 20px;
+      font-size: 15px;
       font-family: $secondaryFont;
     }
   }
-  .day1{
-
-  }
-  .week1{
-
-  }
-  .week2{
-
-  }
-  .week34{
-
-  }
-  .week5{
-
-  }
-  .week6{
-
-  }
-  .week7{
-
-  }
-  .week89{
-
-  }
-  .week10{
-
-  }
-  .week1112{
-
-  }
-  .week13{
-
+  .slideSection{
+    width: 32%;
+    height: 31%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    img{
+      height: 100%;
+      width: 100%;
+    }
   }
   .nextSlide{
     height: 100%;
