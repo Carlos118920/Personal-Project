@@ -49,80 +49,21 @@ table {
 
 html {
   box-sizing: border-box;
-  overflow: hidden; }
+  overflow: hidden;
+  width: 100%;
+  height: 100%; }
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
 
-.loadingContainer {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column; }
-
-.loadingAnimationContainer {
-  opacity: 0;
-  height: 150px;
-  width: 150px;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-  .loadingAnimationContainer .loadingAnimationContainer2 {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: -25; }
-  .loadingAnimationContainer .circle {
-    border-radius: 50%; }
-  .loadingAnimationContainer .one {
-    height: 70px;
-    width: 70px;
-    position: absolute;
-    left: -15px;
-    bottom: 10px;
-    background: #2aabe2; }
-  .loadingAnimationContainer .two {
-    height: 20px;
-    width: 20px;
-    background: #2aabe2; }
-  .loadingAnimationContainer .three {
-    height: 70px;
-    width: 70px;
-    position: absolute;
-    background: #2aabe2;
-    bottom: 10px;
-    right: -15px; }
-  .loadingAnimationContainer .four {
-    height: 70px;
-    width: 70px;
-    position: absolute;
-    background: #2aabe2;
-    top: -20px;
-    right: 40px; }
-  .loadingAnimationContainer .five {
-    height: 20px;
-    width: 20px;
-    bottom: 10px;
-    left: -45px;
-    position: absolute;
-    background: #2aabe2; }
-  .loadingAnimationContainer .six {
-    height: 20px;
-    width: 20px;
-    bottom: 10px;
-    right: -45px;
-    position: absolute;
-    background: #2aabe2; }
-  .loadingAnimationContainer .seven {
-    height: 20px;
-    width: 20px;
-    position: absolute;
-    right: 65px;
-    top: -50px;
-    background: #2aabe2; }
+[transition-out-multiple]:hover {
+  cursor: pointer; }
 
 .bgVid {
   position: fixed;
@@ -135,6 +76,35 @@ html {
   z-index: -50;
   transform: translateX(-50%) translateY(-50%);
   transition: 2s opacity; }
+
+.fadeUpDown {
+  opacity: 0; }
+
+.fadeIn {
+  opacity: 0; }
+
+.animationBoxBlue {
+  position: absolute;
+  top: 0;
+  height: 110%;
+  width: 200%;
+  background: #2aabe2;
+  left: -50%; }
+
+.animationBoxWhite {
+  position: absolute;
+  top: 0;
+  height: 110%;
+  width: 200%;
+  background: white;
+  left: -50%; }
+
+.appear {
+  overflow: hidden;
+  width: 0px;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px; }
 
 .transitionWhite {
   background: white;
@@ -154,6 +124,83 @@ html {
   top: 0;
   z-index: 25; }
 
+.animationCircle {
+  position: absolute;
+  top: -71%;
+  left: -71%;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  background: white;
+  z-index: -10; }
+
+.loadingContainer {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+  .loadingContainer .loadingAnimationContainer {
+    opacity: 0;
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .loadingContainer .loadingAnimationContainer .loadingAnimationContainer2 {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: -25; }
+    .loadingContainer .loadingAnimationContainer .one {
+      height: 70px;
+      width: 70px;
+      position: absolute;
+      left: -15px;
+      bottom: 10px;
+      background: #2aabe2; }
+    .loadingContainer .loadingAnimationContainer .two {
+      height: 20px;
+      width: 20px;
+      background: #2aabe2; }
+    .loadingContainer .loadingAnimationContainer .three {
+      height: 70px;
+      width: 70px;
+      position: absolute;
+      background: #2aabe2;
+      bottom: 10px;
+      right: -15px; }
+    .loadingContainer .loadingAnimationContainer .four {
+      height: 70px;
+      width: 70px;
+      position: absolute;
+      background: #2aabe2;
+      top: -20px;
+      right: 40px; }
+    .loadingContainer .loadingAnimationContainer .five {
+      height: 20px;
+      width: 20px;
+      bottom: 10px;
+      left: -45px;
+      position: absolute;
+      background: #2aabe2; }
+    .loadingContainer .loadingAnimationContainer .six {
+      height: 20px;
+      width: 20px;
+      bottom: 10px;
+      right: -45px;
+      position: absolute;
+      background: #2aabe2; }
+    .loadingContainer .loadingAnimationContainer .seven {
+      height: 20px;
+      width: 20px;
+      position: absolute;
+      right: 65px;
+      top: -50px;
+      background: #2aabe2; }
+
 .homeContainer {
   z-index: 0;
   font-family: 'Muli', sans-serif;
@@ -167,14 +214,23 @@ html {
   background: transparent;
   color: white; }
   .homeContainer .homeTitle {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
-    width: 500px;
-    height: 200px;
-    letter-spacing: 1px; }
+    width: 470px;
+    height: 300px;
+    letter-spacing: 1px;
+    margin-top: 50px; }
     .homeContainer .homeTitle h1 {
       font-family: "Sacramento", cursive;
       font-size: 100px;
-      margin-bottom: 20px; }
+      padding-top: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column; }
     .homeContainer .homeTitle h6 {
       font-family: "Fredericka the Great", cursive;
       font-size: 20px;
@@ -182,7 +238,8 @@ html {
   .homeContainer .homeCircleContainer {
     width: 440px;
     margin-right: 100px;
-    letter-spacing: 1px; }
+    letter-spacing: 1px;
+    position: relative; }
     .homeContainer .homeCircleContainer .homeBigCircle {
       display: flex;
       flex-direction: column;
@@ -195,25 +252,30 @@ html {
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      border: 3px solid #2aabe2; }
+      border: 3px solid #2aabe2;
+      overflow: hidden; }
       .homeContainer .homeCircleContainer .homeBigCircle h3 {
         font-family: "Fredericka the Great", cursive;
         font-size: 18px; }
       .homeContainer .homeCircleContainer .homeBigCircle h2 {
-        margin: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        margin-top: 10px;
         font-family: "Sacramento", cursive;
         font-size: 40px;
         color: #2aabe2; }
-    .homeContainer .homeCircleContainer .homeBigCircle:before {
-      content: " ";
+    .homeContainer .homeCircleContainer .homeBigCircleDouble {
       position: absolute;
+      background: transparent;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
-      z-index: -1;
-      top: -8px;
-      left: -8px;
-      right: 2px;
-      bottom: 2px;
-      border: 3px solid #2aabe2; }
+      border: 3px solid #2aabe2;
+      top: 94px;
+      left: -6px;
+      transition: 0.50s; }
     .homeContainer .homeCircleContainer .homeSmallCircle {
       color: white;
       font-family: "Fredericka the Great", cursive;
@@ -227,17 +289,18 @@ html {
       width: 150px;
       height: 150px;
       border-radius: 50%;
-      border: 3px solid #2aabe2; }
-    .homeContainer .homeCircleContainer .homeSmallCircle:before {
-      content: " ";
+      border: 3px solid #2aabe2;
+      overflow: hidden; }
+    .homeContainer .homeCircleContainer .homeSmallCircleDouble {
       position: absolute;
+      background: transparent;
+      top: 0px;
+      left: 275px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      z-index: -1;
-      top: -8px;
-      left: -8px;
-      right: 2px;
-      bottom: 2px;
-      border: 3px solid #2aabe2; }
+      border: 3px solid #2aabe2;
+      transition: 0.50s; }
 
 .applicationContainer {
   display: flex;
@@ -341,24 +404,34 @@ html {
   height: 100vh;
   display: flex;
   justify-content: space-around;
-  overflow: hidden;
-  color: #2aabe2;
-  font-size: 40px;
-  font-weight: bold; }
-  .choiceContainer p {
+  overflow: hidden; }
+  .choiceContainer .choiceText {
     width: 100%;
     padding: 20px 50px;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center; }
+    .choiceContainer .choiceText h1 {
+      font-family: "Sacramento", cursive;
+      color: #2aabe2;
+      font-size: 40px;
+      height: 40px;
+      overflow: hidden;
+      padding-top: 10px;
+      font-weight: bold;
+      margin-bottom: 5px; }
+    .choiceContainer .choiceText h2 {
+      font-family: "Fredericka the Great", cursive;
+      color: white;
+      font-size: 16px; }
   .choiceContainer .dallasChoice {
     position: relative;
     height: 100%;
     width: 33%;
     overflow: hidden; }
     .choiceContainer .dallasChoice .dallasChoiceContent {
-      font-family: "Sacramento", cursive;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -373,7 +446,6 @@ html {
     width: 33%;
     overflow: hidden; }
     .choiceContainer .provoChoice .provoChoiceContent {
-      font-family: "Sacramento", cursive;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -388,7 +460,6 @@ html {
     width: 33%;
     overflow: hidden; }
     .choiceContainer .slcChoice .slcChoiceContent {
-      font-family: "Sacramento", cursive;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -397,22 +468,6 @@ html {
       background-image: url("https://s-media-cache-ak0.pinimg.com/736x/fc/fa/5a/fcfa5ac1267d8ef0302b776e28683362.jpg");
       background-size: cover;
       background-position: center; }
-
-.animationBoxBlue {
-  position: absolute;
-  top: 0;
-  height: 110%;
-  width: 150%;
-  background: #2aabe2;
-  left: -25%; }
-
-.animationBoxWhite {
-  position: absolute;
-  top: 0;
-  height: 110%;
-  width: 200%;
-  background: white;
-  left: -25%; }
 
 .courseSurveyContainer {
   width: 100%;
@@ -529,7 +584,7 @@ html {
     top: 50%;
     transform: translate(0 -50%);
     width: 60%;
-    height: 100px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center; }
@@ -538,7 +593,8 @@ html {
       color: #2aabe2;
       font-size: 80px;
       font-family: "Sacramento", cursive;
-      margin: 10px 0px; }
+      margin: 10px 0px;
+      height: 80px; }
     .welcomeToProvoContainer .provoTitle h2 {
       font-family: "Fredericka the Great", cursive;
       font-size: 20px;
@@ -624,7 +680,8 @@ html {
         font-size: 80px;
         font-family: "Sacramento", cursive;
         color: #2aabe2;
-        margin-top: 10px; }
+        margin-top: 10px;
+        height: 120px; }
       .provoHousingContainer .housingTopHalf .housingTitle h2 {
         font-size: 32px;
         font-family: "Fredericka the Great", cursive;
@@ -665,7 +722,6 @@ html {
     align-content: space-around;
     top: 0px;
     left: 0px;
-    font-size: 80px;
     text-align: center; }
     .learnContainer .learnSlides h1 {
       color: #2aabe2;
@@ -686,6 +742,32 @@ html {
     .learnContainer .slideSection img {
       height: 100%;
       width: 100%; }
+  .learnContainer .infoSlideSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+    font-size: 18px;
+    color: white;
+    font-family: "Fredericka the Great", cursive;
+    background: rgba(0, 0, 0, 0.25); }
+  .learnContainer .infoSlideSection:before {
+    content: " ";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: 1px;
+    bottom: 1px;
+    border: 3px solid #2aabe2; }
+  .learnContainer .infoSlideSection:after {
+    content: " ";
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    right: -4px;
+    bottom: -4px;
+    border: 3px solid #2aabe2; }
   .learnContainer .nextSlide {
     height: 100%;
     width: 50%;
@@ -701,9 +783,11 @@ html {
     left: 0;
     z-index: 1; }
   .learnContainer .nextSlide:hover {
-    cursor: url("http://www.nexterior.net/media/up.png"); }
+    cursor: pointer;
+    cursor: url("http://atitheatre.ae/wp-content/plugins/flipbook/images/icons/arrow_double_right.png"), auto; }
   .learnContainer .prevSlide:hover {
-    cursor: url("http://www.iconsdb.com/icons/preview/white/left-round-xxl.png"), auto; }
+    cursor: pointer;
+    cursor: url("http://atitheatre.ae/wp-content/plugins/flipbook/images/icons/arrow_double_left.png"), auto; }
 
 .jobSearchContainer {
   width: 100%;
@@ -828,10 +912,13 @@ html {
     border-radius: 50%;
     border: 5px solid white; }
     .jobSearchContainer .titleBubble h1 {
+      width: 100%;
       font-size: 60px;
       font-family: "Sacramento", cursive;
       position: absolute;
-      bottom: 25%; }
+      bottom: 25%;
+      left: 50%;
+      transform: translate(-40%); }
   .jobSearchContainer .bubble:nth-of-type(14) {
     height: 65px;
     width: 65px;
@@ -848,6 +935,7 @@ html {
     bottom: 90%;
     left: 69%; }
   .jobSearchContainer .info {
+    opacity: 0;
     position: fixed;
     display: flex;
     align-items: center;
@@ -880,6 +968,7 @@ html {
     bottom: 59%;
     right: 3%; }
   .jobSearchContainer .line {
+    opacity: 0;
     border-top: 3px solid #2aabe2;
     border-bottom: 3px solid #2aabe2;
     position: fixed;
@@ -914,31 +1003,35 @@ html {
   justify-content: center; }
   .applyContainer img {
     width: 600px; }
-  .applyContainer .experienceApplyButton {
-    color: white;
-    background: rgba(0, 0, 0, 0.25);
-    font-family: "Sacramento", cursive;
-    font-size: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .applyContainer .experienceApplyButtonContainer {
     position: relative;
-    margin: 30px;
-    border-radius: 50%;
-    height: 250px;
-    width: 250px;
-    border: 3px solid #2aabe2; }
-  .applyContainer .experienceApplyButton:after {
-    content: " ";
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.25);
-    z-index: -1;
-    top: -8px;
-    left: -8px;
-    right: 2px;
-    bottom: 2px;
-    border: 3px solid #2aabe2; }
+    margin-top: 100px; }
+    .applyContainer .experienceApplyButtonContainer .experienceApplyButton {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      height: 250px;
+      width: 250px;
+      border: 3px solid #2aabe2;
+      overflow: hidden; }
+      .applyContainer .experienceApplyButtonContainer .experienceApplyButton h1 {
+        color: white;
+        font-family: "Sacramento", cursive;
+        font-weight: 700;
+        font-size: 50px;
+        padding-top: 15px;
+        height: 80px; }
+    .applyContainer .experienceApplyButtonContainer .experienceApplyButtonDouble {
+      position: absolute;
+      border-radius: 50%;
+      height: 250px;
+      width: 250px;
+      border: 3px solid #2aabe2;
+      top: -6px;
+      left: -6px;
+      transition: 0.50s; }
 
 .upDown {
   display: flex;
@@ -949,30 +1042,26 @@ html {
   width: 50px;
   height: 30px;
   z-index: 500; }
-
-.arrowContainer {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-
-.arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: solid white;
-  border-width: 0 1px 1px 0;
-  display: inline-block;
-  padding: 5px; }
-
-.upIcon {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg); }
-
-.downIcon {
-  margin-bottom: 12px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg); }
+  .upDown .arrowContainer {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .upDown .arrowContainer .arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: solid white;
+      border-width: 0 1px 1px 0;
+      display: inline-block;
+      padding: 5px; }
+    .upDown .arrowContainer .upIcon {
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg); }
+    .upDown .arrowContainer .downIcon {
+      margin-bottom: 12px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg); }
 
 /*# sourceMappingURL=maps/styles.css.map */

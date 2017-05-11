@@ -2,19 +2,23 @@
   <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
 </video>
 
-<div scroll-down transition-in-multiple class="homeContainer container">
+<div scroll-down text-animation transition-in-multiple circle-hover class="homeContainer container">
   <div class="homeTitle">
-      <h1>Dev <br> Mountain</h1>
-      <h6>Programming Bootcamp</h6>
+      <h1 class="appear">Dev <br> Mountain</h1>
+      <h6 class="fadeUpDown">Programming Bootcamp</h6>
   </div>
   <div class="homeCircleContainer">
-    <div ng-click="switchApply()" transition-out-multiple class="homeSmallCircle">
-      <h3>Apply Now!</h3>
+    <div class="homeSmallCircleDouble"></div>
+    <div ng-click="switchApply()" transition-out-multiple class="homeSmallCircle mainCircle">
+      <h3 class="fadeIn" >Apply Now!</h3>
+      <div class="animationCircle"></div>
     </div>
-    <div ng-click="switchDown()" transition-out-multiple class="homeBigCircle">
-      <h3>See The</h3>
-      <h2>DevMountain</h2>
-      <h3>Experience!</h3>
+    <div class="homeBigCircleDouble"></div>
+    <div ng-click="switchDown()" transition-out-multiple class="homeBigCircle mainCircle">
+      <h3 class="fadeIn">See The</h3>
+      <h2 class="appear">DevMountain</h2>
+      <h3 class="fadeIn">Experience!</h3>
+      <div class="animationCircle"></div>
     </div>
   </div>
   <div class="animationBoxBlue"></div>

@@ -179,4 +179,10 @@ angular.module("DME").service("mainSrv", function($http){
       data: {id, survey}
     })
   }
+
+  this.getTravelData = () => {
+    return $http.get("/api").then((response) => {
+      return response;
+    });
+  }
 })

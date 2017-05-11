@@ -1,5 +1,7 @@
 const app = require("./../index");
 const db = app.get("db");
+const config = require("./../backend/config.js")
+const axios = app.get("axios");
 
 module.exports = {
   getAll: (req, res, next) => {
@@ -27,6 +29,14 @@ module.exports = {
       } else {
         res.send(err);
       }
+    })
+  },
+  getLocationData: (req, res, next) => {
+    axios.get("http://ip-api.com/json").then(function(response){
+      let origin = response.data.city + "," + response.data.regionName;
+      axios.get("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + origin + "&destinations=Dallas,Tx|Provo,UT|SaltLakeCity,UT&key=" + config.APIKEY).then(function (response2){
+        res.status(200).send(response2.data);
+      })
     })
   }
 }

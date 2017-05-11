@@ -1,32 +1,36 @@
 <div transition-in-multiple scroll-up class="choiceContainer container">
   <div class="dallasChoice">
     <div transition-out-multiple class="dallasChoiceContent">
-      <p>Dallas, Texas</p>
+      <div class="choiceText">
+        <h1 class="appear">Dallas,Texas</h1>
+        <h2 class="primaryFont fadeUpDown">Distance: {{dallasDistance}}</h2>
+        <h2 class="primaryFont fadeUpDown">Drive Time: {{dallasTime}}</h2>
+      </div>
     </div>
     <div class="animationBoxBlue"></div>
     <div class="animationBoxWhite"></div>
   </div>
   <div ng-click="switchProvo()" class="provoChoice">
     <div transition-out-multiple class="provoChoiceContent">
-      <p>Provo, Utah</p>
+      <div class="choiceText">
+        <h1 class="appear">Provo,Utah</h1>
+        <h2 class="primaryFont fadeUpDown">Distance: {{provoDistance}}</h2>
+        <h2 class="primaryFont fadeUpDown">Drive Time: {{provoTime}}</h2>
+      </div>
     </div>
-    <div class="animationBoxBlue">
-
-    </div>
-    <div class="animationBoxWhite">
-
-    </div>
+    <div class="animationBoxBlue"></div>
+    <div class="animationBoxWhite"></div>
   </div>
   <div class="slcChoice">
     <div transition-out-multiple class="slcChoiceContent">
-      <p>Salt Lake City, Utah</p>
+      <div class="choiceText">
+        <h1 class="appear">SaltLakeCity,Utah</h1>
+        <h2 class="primaryFont fadeUpDown">Distance: {{saltLakeCityDistance}}</h2>
+        <h2 class="primaryFont fadeUpDown">Drive Time: {{saltLakeCityTime}}</h2>
+      </div>
     </div>
-    <div class="animationBoxBlue">
-
-    </div>
-    <div class="animationBoxWhite">
-
-    </div>
+    <div class="animationBoxBlue"></div>
+    <div class="animationBoxWhite"></div>
   </div>
 </div>
 <div class="upDown">

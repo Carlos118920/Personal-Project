@@ -11,4 +11,13 @@ angular.module("DME").controller("applyCtrl", function($scope, $timeout, $locati
       $scope.$apply();
     }, 700);
   };
+  // $scope.locationData = mainSrv.getLocationData().then(function(response){
+  //   $scope.locationData = response;
+  //
+  //   mainSrv.getTravelData(response.city, response.regionName).then(function(response2){
+  //     $scope.distance = response2.data.rows["0"].elements["0"].distance.text;
+  //     $scope.time = response2.data.rows["0"].elements["0"].duration.text;
+  //     console.log(response2.data.rows);
+  //   })
+  // });
 })

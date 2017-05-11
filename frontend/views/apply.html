@@ -1,10 +1,14 @@
 <video class="bgVid" playsinline autoplay muted loop>
   <source src="http://thenewcode.com/assets/videos/polina.mp4" type="video/mp4">
 </video>
-<div class="applyContainer container" scroll-up transition-in-multiple>
+<div class="applyContainer container" scroll-up circle-hover transition-in-multiple>
   <img src="https://s3.amazonaws.com/devmountain/www/img/logo_whiteletters.png" alt="DevMoutain Logo">
-  <div transition-out-multiple ng-click="switchApplication()" class="experienceApplyButton">
-    <h1>Apply Now</h1>
+  <div class="experienceApplyButtonContainer">
+    <div class="experienceApplyButtonDouble"></div>
+    <div transition-out-multiple ng-click="switchApplication()" class="experienceApplyButton mainCircle">
+      <h1 class="appear">ApplyNow</h1>
+      <div class="animationCircle"></div>
+    </div>
   </div>
   <div class="animationBoxBlue"></div>
   <div class="animationBoxWhite"></div>
