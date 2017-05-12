@@ -65,6 +65,9 @@ body {
 [transition-out-multiple]:hover {
   cursor: pointer; }
 
+.circle {
+  border-radius: 50%; }
+
 .bgVid {
   position: fixed;
   top: 50%;
@@ -142,7 +145,7 @@ body {
   justify-content: center;
   flex-direction: column; }
   .loadingContainer .loadingAnimationContainer {
-    opacity: 0;
+    opacity: 1;
     height: 150px;
     width: 150px;
     position: absolute;
@@ -198,7 +201,7 @@ body {
       width: 20px;
       position: absolute;
       right: 65px;
-      top: -50px;
+      top: -55px;
       background: #2aabe2; }
 
 .homeContainer {
@@ -294,8 +297,8 @@ body {
     .homeContainer .homeCircleContainer .homeSmallCircleDouble {
       position: absolute;
       background: transparent;
-      top: 0px;
-      left: 275px;
+      top: -6px;
+      left: 269px;
       width: 150px;
       height: 150px;
       border-radius: 50%;

@@ -46,6 +46,185 @@ angular.module("DME", ["ui.router"]).config(function ($stateProvider, $urlRouter
 });
 "use strict";
 
+angular.module("DME").controller("applicationCtrl", function ($scope, $timeout, $location, mainSrv) {
+  $scope.courses = mainSrv.getCourses().then(function (response) {
+    $scope.courses = response;
+  });
+  $scope.surveySwitch = function (id) {
+    $timeout(function () {
+      $location.path("coursesurvey/" + id);
+      $scope.$apply();
+    }, 700);
+  };
+});
+"use strict";
+
+angular.module("DME").controller("applyCtrl", function ($scope, $timeout, $location, mainSrv) {
+  $scope.switchUp = function () {
+    $timeout(function () {
+      $location.path("experience/jobsearch");
+      $scope.$apply();
+    }, 700);
+  };
+  $scope.switchApplication = function () {
+    $timeout(function () {
+      $location.path("application");
+      $scope.$apply();
+    }, 700);
+  };
+  // $scope.locationData = mainSrv.getLocationData().then(function(response){
+  //   $scope.locationData = response;
+  //
+  //   mainSrv.getTravelData(response.city, response.regionName).then(function(response2){
+  //     $scope.distance = response2.data.rows["0"].elements["0"].distance.text;
+  //     $scope.time = response2.data.rows["0"].elements["0"].duration.text;
+  //     console.log(response2.data.rows);
+  //   })
+  // });
+});
+"use strict";
+
+angular.module("DME").controller("courseSurvey", function ($scope, $stateParams, $timeout, $location, $anchorScroll, mainSrv) {
+  $scope.course = mainSrv.getCourse($stateParams.id).then(function (response) {
+    $scope.course = response[0];
+    $location.hash('top');
+    $anchorScroll();
+  });
+  $scope.switchApply = function () {
+    $timeout(function () {
+      $location.path("application");
+      $scope.$apply();
+    }, 700);
+  };
+  $scope.submitApplication = function () {
+    mainSrv.submitApplication($scope.survey, $stateParams.id);
+  };
+});
+"use strict";
+
+angular.module("DME").controller("homeCtrl", function ($scope, $timeout, $location, mainSrv) {
+  $scope.switchApply = function () {
+    $timeout(function () {
+      $location.path("application");
+      $scope.$apply();
+    }, 700);
+  };
+  $scope.switchDown = function () {
+    $timeout(function () {
+      $location.path("experience/locationchoice");
+      $scope.$apply();
+    }, 700);
+  };
+});
+"use strict";
+
+angular.module("DME").controller("jobSearchCtrl", function ($scope, $timeout, $location, mainSrv) {
+  $scope.switchUp = function () {
+    $timeout(function () {
+      $location.path("experience/learn");
+      $scope.$apply();
+    }, 700);
+  };
+  $scope.switchDown = function () {
+    $timeout(function () {
+      $location.path("experience/apply");
+      $scope.$apply();
+    }, 700);
+  };
+});
+"use strict";
+
+angular.module("DME").controller("learnCtrl", function ($scope, $timeout, $location, mainSrv) {
+  $scope.switchUp = function () {
+    $timeout(function () {
+      $location.path("experience/provohousing");
+      $scope.$apply();
+    }, 700);
+  };
+  $scope.switchDown = function () {
+    $timeout(function () {
+      $location.path("experience/jobsearch");
+      $scope.$apply();
+    }, 700);
+  };
+});
+"use strict";
+
+angular.module("DME").controller("locationChoiceCtrl", function ($scope, $timeout, $location, mainSrv) {
+  $scope.switchProvo = function () {
+    $timeout(function () {
+      $location.path("experience/welcometoprovo");
+      $scope.$apply();
+    }, 1200);
+  };
+  $scope.switchUp = function () {
+    $timeout(function () {
+      $location.path("home");
+      $scope.$apply();
+    }, 1200);
+  };
+  mainSrv.getTravelData().then(function (response) {
+    $scope.dallasDistance = response.data.rows["0"].elements["0"].distance.text;
+    $scope.dallasTime = response.data.rows["0"].elements["0"].duration.text;
+    $scope.provoDistance = response.data.rows["0"].elements["1"].distance.text;
+    $scope.provoTime = response.data.rows["0"].elements["1"].duration.text;
+    $scope.saltLakeCityDistance = response.data.rows["0"].elements["2"].distance.text;
+    $scope.saltLakeCityTime = response.data.rows["0"].elements["2"].duration.text;
+  });
+});
+"use strict";
+
+angular.module("DME").controller("mainCtrl", function ($scope, mainSrv) {
+
+  // USE ES6
+
+
+  $scope.nextPage = function () {
+    console.log("NextPage clicked!");
+  };
+
+  $scope.prevPage = function () {
+    console.log("PrevPage clicked!");
+  };
+  // function switchView(){
+  //   $location.path('home');
+  //   $scope.$apply();
+  // };
+});
+"use strict";
+
+angular.module("DME").controller("provoHousing", function ($scope, $timeout, $location, mainSrv) {
+  $scope.switchUp = function () {
+    $timeout(function () {
+      $location.path("experience/welcometoprovo");
+      $scope.$apply();
+    }, 2000);
+  };
+  $scope.switchDown = function () {
+    $timeout(function () {
+      $location.path("experience/learn");
+      $scope.$apply();
+    }, 2000);
+  };
+});
+"use strict";
+
+angular.module("DME").controller("welcomeToProvo", function ($scope, $stateParams, $timeout, $location, mainSrv) {
+  $scope.switchDown = function () {
+    $timeout(function () {
+      $location.path("experience/provohousing");
+      $scope.$apply();
+    }, 700);
+  };
+  $scope.switchUp = function () {
+    $timeout(function () {
+      $location.path("experience/locationchoice");
+      $scope.$apply();
+    }, 700);
+  };
+});
+"use strict";
+
 angular.module("DME").directive("bubbleAnimation", function ($location, $timeout) {
   return {
     restrict: "A",
@@ -304,185 +483,6 @@ angular.module("DME").directive("transitionOutMultiple", function ($location, $t
         TweenMax.staggerTo(".animationBoxWhite", 0.30, { delay: 0.35, transform: "rotate(0deg)", ease: Power1.easeIn }, 0.25);
       });
     }
-  };
-});
-"use strict";
-
-angular.module("DME").controller("applicationCtrl", function ($scope, $timeout, $location, mainSrv) {
-  $scope.courses = mainSrv.getCourses().then(function (response) {
-    $scope.courses = response;
-  });
-  $scope.surveySwitch = function (id) {
-    $timeout(function () {
-      $location.path("coursesurvey/" + id);
-      $scope.$apply();
-    }, 700);
-  };
-});
-"use strict";
-
-angular.module("DME").controller("applyCtrl", function ($scope, $timeout, $location, mainSrv) {
-  $scope.switchUp = function () {
-    $timeout(function () {
-      $location.path("experience/jobsearch");
-      $scope.$apply();
-    }, 700);
-  };
-  $scope.switchApplication = function () {
-    $timeout(function () {
-      $location.path("application");
-      $scope.$apply();
-    }, 700);
-  };
-  // $scope.locationData = mainSrv.getLocationData().then(function(response){
-  //   $scope.locationData = response;
-  //
-  //   mainSrv.getTravelData(response.city, response.regionName).then(function(response2){
-  //     $scope.distance = response2.data.rows["0"].elements["0"].distance.text;
-  //     $scope.time = response2.data.rows["0"].elements["0"].duration.text;
-  //     console.log(response2.data.rows);
-  //   })
-  // });
-});
-"use strict";
-
-angular.module("DME").controller("courseSurvey", function ($scope, $stateParams, $timeout, $location, $anchorScroll, mainSrv) {
-  $scope.course = mainSrv.getCourse($stateParams.id).then(function (response) {
-    $scope.course = response[0];
-    $location.hash('top');
-    $anchorScroll();
-  });
-  $scope.switchApply = function () {
-    $timeout(function () {
-      $location.path("application");
-      $scope.$apply();
-    }, 700);
-  };
-  $scope.submitApplication = function () {
-    mainSrv.submitApplication($scope.survey, $stateParams.id);
-  };
-});
-"use strict";
-
-angular.module("DME").controller("homeCtrl", function ($scope, $timeout, $location, mainSrv) {
-  $scope.switchApply = function () {
-    $timeout(function () {
-      $location.path("application");
-      $scope.$apply();
-    }, 700);
-  };
-  $scope.switchDown = function () {
-    $timeout(function () {
-      $location.path("experience/locationchoice");
-      $scope.$apply();
-    }, 700);
-  };
-});
-"use strict";
-
-angular.module("DME").controller("jobSearchCtrl", function ($scope, $timeout, $location, mainSrv) {
-  $scope.switchUp = function () {
-    $timeout(function () {
-      $location.path("experience/learn");
-      $scope.$apply();
-    }, 700);
-  };
-  $scope.switchDown = function () {
-    $timeout(function () {
-      $location.path("experience/apply");
-      $scope.$apply();
-    }, 700);
-  };
-});
-"use strict";
-
-angular.module("DME").controller("learnCtrl", function ($scope, $timeout, $location, mainSrv) {
-  $scope.switchUp = function () {
-    $timeout(function () {
-      $location.path("experience/provohousing");
-      $scope.$apply();
-    }, 700);
-  };
-  $scope.switchDown = function () {
-    $timeout(function () {
-      $location.path("experience/jobsearch");
-      $scope.$apply();
-    }, 700);
-  };
-});
-"use strict";
-
-angular.module("DME").controller("locationChoiceCtrl", function ($scope, $timeout, $location, mainSrv) {
-  $scope.switchProvo = function () {
-    $timeout(function () {
-      $location.path("experience/welcometoprovo");
-      $scope.$apply();
-    }, 1200);
-  };
-  $scope.switchUp = function () {
-    $timeout(function () {
-      $location.path("home");
-      $scope.$apply();
-    }, 1200);
-  };
-  mainSrv.getTravelData().then(function (response) {
-    $scope.dallasDistance = response.data.rows["0"].elements["0"].distance.text;
-    $scope.dallasTime = response.data.rows["0"].elements["0"].duration.text;
-    $scope.provoDistance = response.data.rows["0"].elements["1"].distance.text;
-    $scope.provoTime = response.data.rows["0"].elements["1"].duration.text;
-    $scope.saltLakeCityDistance = response.data.rows["0"].elements["2"].distance.text;
-    $scope.saltLakeCityTime = response.data.rows["0"].elements["2"].duration.text;
-  });
-});
-"use strict";
-
-angular.module("DME").controller("mainCtrl", function ($scope, mainSrv) {
-
-  // USE ES6
-
-
-  $scope.nextPage = function () {
-    console.log("NextPage clicked!");
-  };
-
-  $scope.prevPage = function () {
-    console.log("PrevPage clicked!");
-  };
-  // function switchView(){
-  //   $location.path('home');
-  //   $scope.$apply();
-  // };
-});
-"use strict";
-
-angular.module("DME").controller("provoHousing", function ($scope, $timeout, $location, mainSrv) {
-  $scope.switchUp = function () {
-    $timeout(function () {
-      $location.path("experience/welcometoprovo");
-      $scope.$apply();
-    }, 2000);
-  };
-  $scope.switchDown = function () {
-    $timeout(function () {
-      $location.path("experience/learn");
-      $scope.$apply();
-    }, 2000);
-  };
-});
-"use strict";
-
-angular.module("DME").controller("welcomeToProvo", function ($scope, $stateParams, $timeout, $location, mainSrv) {
-  $scope.switchDown = function () {
-    $timeout(function () {
-      $location.path("experience/provohousing");
-      $scope.$apply();
-    }, 700);
-  };
-  $scope.switchUp = function () {
-    $timeout(function () {
-      $location.path("experience/locationchoice");
-      $scope.$apply();
-    }, 700);
   };
 });
 "use strict";
