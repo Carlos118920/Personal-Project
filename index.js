@@ -9,7 +9,7 @@ var corsOptions = {
 }
 const massive = require("massive")
 const conn = massive.connectSync({
-  connectionString : "postgres://postgres@localhost:5430/dm_personal_project"
+  connectionString : config.connectString
 })
 
 let app = module.exports = express();

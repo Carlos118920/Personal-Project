@@ -47,6 +47,120 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+@media (max-width: 1400px) {
+  .bubble:nth-of-type(1) {
+    height: 8px;
+    width: 8px; }
+  .bubble:nth-of-type(2) {
+    height: 14px;
+    width: 14px; }
+  .bubble:nth-of-type(3) {
+    height: 20px;
+    width: 20px; }
+  .salaryBubble {
+    height: 80px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .bubble:nth-of-type(5) {
+    height: 28px;
+    width: 28px; }
+  .bubble:nth-of-type(6) {
+    height: 36px;
+    width: 36px; }
+  .hireRateBubble {
+    font-size: 20px;
+    height: 120px;
+    width: 120px; }
+  .bubble:nth-of-type(8) {
+    height: 45px;
+    width: 45px; }
+  .timeBubble {
+    font-size: 26px;
+    height: 160px;
+    width: 160px; }
+  .bubble:nth-of-type(10) {
+    height: 50px;
+    width: 50px; }
+  .bubble:nth-of-type(11) {
+    height: 60px;
+    width: 60px; }
+  .jobFairBubble {
+    font-size: 34px;
+    height: 220px;
+    width: 220px; }
+  .titleBubble {
+    height: 300px;
+    width: 300px; }
+    .titleBubble h1 {
+      font-size: 60px; }
+  .bubble:nth-of-type(14) {
+    height: 65px;
+    width: 65px; }
+  .bubble:nth-of-type(15) {
+    height: 15px;
+    width: 15px; }
+  .bubble:nth-of-type(16) {
+    height: 30px;
+    width: 30px; } }
+
+@media (min-width: 1400px) {
+  .bubble:nth-of-type(1) {
+    height: 12px;
+    width: 12px; }
+  .bubble:nth-of-type(2) {
+    height: 21px;
+    width: 21px; }
+  .bubble:nth-of-type(3) {
+    height: 30px;
+    width: 30px; }
+  .salaryBubble {
+    font-size: 24px;
+    height: 120px;
+    width: 120px; }
+  .bubble:nth-of-type(5) {
+    height: 42px;
+    width: 42px; }
+  .bubble:nth-of-type(6) {
+    height: 54px;
+    width: 54px; }
+  .hireRateBubble {
+    font-size: 30px;
+    height: 180px;
+    width: 180px; }
+  .bubble:nth-of-type(8) {
+    height: 67px;
+    width: 67px; }
+  .timeBubble {
+    font-size: 39px;
+    height: 240px;
+    width: 240px; }
+  .bubble:nth-of-type(10) {
+    height: 75px;
+    width: 75px; }
+  .bubble:nth-of-type(11) {
+    height: 90px;
+    width: 90px; }
+  .jobFairBubble {
+    font-size: 51px;
+    height: 330px;
+    width: 330px; }
+  .titleBubble {
+    height: 450px;
+    width: 450px; }
+    .titleBubble h1 {
+      font-size: 90px; }
+  .bubble:nth-of-type(14) {
+    height: 65px;
+    width: 65px; }
+  .bubble:nth-of-type(15) {
+    height: 22px;
+    width: 22px; }
+  .bubble:nth-of-type(16) {
+    height: 45px;
+    width: 45px; } }
+
 html {
   box-sizing: border-box;
   overflow: hidden;
@@ -363,8 +477,8 @@ body {
         font-weight: bold;
         font-family: Lucida Grande; }
       .applicationContainer .courseContainer .course img {
-        width: 250px;
-        height: 250px;
+        width: 350px;
+        height: 350px;
         border-radius: 50%; }
       .applicationContainer .courseContainer .course .courseInfo {
         display: flex;
@@ -504,8 +618,8 @@ body {
       font-weight: bold;
       font-family: Lucida Grande; }
     .courseSurveyContainer .course img {
-      width: 250px;
-      height: 250px;
+      width: 350px;
+      height: 350px;
       border-radius: 50%; }
     .courseSurveyContainer .course .courseInfo {
       display: flex;
@@ -581,7 +695,7 @@ body {
   overflow: hidden;
   background-image: url("https://seekraz.files.wordpress.com/2013/04/cedar-fort-farmland-under-wasatch-mountains-with-snow.jpg");
   background-position: center;
-  background-size: cover; }
+  background-size: 101% 102%; }
   .welcomeToProvoContainer .provoTitle {
     position: absolute;
     top: 50%;
@@ -698,8 +812,7 @@ body {
     .provoHousingContainer .housingBottomHalf .housingImage {
       overflow: hidden;
       position: relative;
-      height: 200px;
-      width: 200px;
+      width: 15%;
       border-radius: 50%; }
       .provoHousingContainer .housingBottomHalf .housingImage img {
         border-radius: 50%;
@@ -793,8 +906,11 @@ body {
     cursor: url("http://atitheatre.ae/wp-content/plugins/flipbook/images/icons/arrow_double_left.png"), auto; }
 
 .jobSearchContainer {
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
+  width: 100%;
   position: fixed;
   top: 0;
   color: white;
@@ -802,110 +918,65 @@ body {
   background: rgba(0, 0, 0, 0.8); }
   .jobSearchContainer .bubble {
     opacity: 0;
-    position: fixed;
+    position: absolute;
     overflow: hidden;
     border-radius: 50%;
-    background: #2aabe2; }
+    background: #2aabe2;
+    transform: translate(50% 50%); }
   .jobSearchContainer .bubble:nth-of-type(1) {
-    height: 8px;
-    width: 8px;
     bottom: 0.5%;
     left: 50%; }
   .jobSearchContainer .bubble:nth-of-type(2) {
-    height: 14px;
-    width: 14px;
     bottom: 2%;
     left: 49%; }
   .jobSearchContainer .bubble:nth-of-type(3) {
-    height: 20px;
-    width: 20px;
     bottom: 5%;
     left: 51%; }
   .jobSearchContainer .salaryBubble {
     left: 45%;
     bottom: 5%;
-    height: 80px;
-    width: 80px;
     display: flex;
     align-items: center;
-    justify-content: center; }
-    .jobSearchContainer .salaryBubble img {
-      width: 50px;
-      height: 50px; }
+    justify-content: center;
+    font-family: "Fredericka the Great", cursive; }
   .jobSearchContainer .bubble:nth-of-type(5) {
-    height: 28px;
-    width: 28px;
     bottom: 14%;
     left: 52%; }
   .jobSearchContainer .bubble:nth-of-type(6) {
-    height: 36px;
-    width: 36px;
     bottom: 22%;
     left: 44%; }
   .jobSearchContainer .hireRateBubble {
-    font-size: 20px;
     right: 40%;
     bottom: 20%;
-    position: fixed;
-    overflow: hidden;
-    height: 120px;
-    width: 120px;
     display: flex;
     align-items: center;
-    justify-content: center; }
-    .jobSearchContainer .hireRateBubble img {
-      height: 50px;
-      width: 50px; }
+    justify-content: center;
+    font-family: "Fredericka the Great", cursive; }
   .jobSearchContainer .bubble:nth-of-type(8) {
-    height: 45px;
-    width: 45px;
     bottom: 41%;
     left: 53%; }
   .jobSearchContainer .timeBubble {
-    font-size: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
     left: 35%;
     bottom: 30%;
-    position: fixed;
-    overflow: hidden;
-    height: 160px;
-    width: 160px; }
-    .jobSearchContainer .timeBubble img {
-      width: 100px;
-      height: 100px; }
+    font-family: "Fredericka the Great", cursive; }
   .jobSearchContainer .bubble:nth-of-type(10) {
-    height: 50px;
-    width: 50px;
     bottom: 55%;
     left: 43%; }
   .jobSearchContainer .bubble:nth-of-type(11) {
-    height: 60px;
-    width: 60px;
     bottom: 60%;
     left: 35%; }
   .jobSearchContainer .jobFairBubble {
-    font-size: 34px;
     bottom: 50%;
     right: 35%;
-    position: fixed;
-    overflow: hidden;
-    height: 220px;
-    width: 220px;
     display: flex;
     align-items: center;
-    justify-content: center; }
-    .jobSearchContainer .jobFairBubble img {
-      margin-top: 20px;
-      margin-left: 5px;
-      height: 130px;
-      width: 130px; }
+    justify-content: center;
+    font-family: "Fredericka the Great", cursive; }
   .jobSearchContainer .titleBubble {
-    position: fixed;
-    overflow: hidden;
-    height: 300px;
-    width: 300px;
+    position: absolute;
     top: 0;
     left: 25%;
     display: flex;
@@ -916,30 +987,23 @@ body {
     border: 5px solid white; }
     .jobSearchContainer .titleBubble h1 {
       width: 100%;
-      font-size: 60px;
       font-family: "Sacramento", cursive;
+      display: flex;
+      justify-content: center;
       position: absolute;
-      bottom: 25%;
-      left: 50%;
-      transform: translate(-40%); }
+      bottom: 25%; }
   .jobSearchContainer .bubble:nth-of-type(14) {
-    height: 65px;
-    width: 65px;
     bottom: 86%;
     left: 58%; }
   .jobSearchContainer .bubble:nth-of-type(15) {
-    height: 15px;
-    width: 15px;
     bottom: 86%;
     left: 65%; }
   .jobSearchContainer .bubble:nth-of-type(16) {
-    height: 30px;
-    width: 30px;
     bottom: 90%;
     left: 69%; }
   .jobSearchContainer .info {
     opacity: 0;
-    position: fixed;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -974,25 +1038,29 @@ body {
     opacity: 0;
     border-top: 3px solid #2aabe2;
     border-bottom: 3px solid #2aabe2;
-    position: fixed;
+    position: absolute;
     padding-top: 3px;
     background: transparent; }
   .jobSearchContainer .connectingLine1 {
     bottom: 10%;
-    left: 28.5%;
-    width: 210px; }
+    left: 20%;
+    width: 26%;
+    transform: translate(-50% -50%); }
   .jobSearchContainer .connectingLine2 {
     bottom: 28.5%;
-    right: 28.5%;
-    width: 145px; }
+    right: 20%;
+    transform: translate(50% -50%);
+    width: 20%; }
   .jobSearchContainer .connectingLine3 {
     bottom: 41%;
-    left: 28.5%;
-    width: 81px; }
+    left: 20%;
+    transform: translate(-50% -50%);
+    width: 15%; }
   .jobSearchContainer .connectingLine4 {
     bottom: 65.5%;
-    right: 28.5%;
-    width: 81px; }
+    right: 20%;
+    transform: translate(50% -50%);
+    width: 15%; }
 
 .applyContainer {
   width: 100%;
