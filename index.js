@@ -5,7 +5,7 @@ const session = require("express-session");
 const config = require("./backend/config.js");
 const axios = require("axios");
 var corsOptions = {
-  origin: "http://localhost:3010"
+  origin: "http://localhost:2729"
 }
 const massive = require("massive")
 const conn = massive.connectSync({
@@ -36,7 +36,7 @@ app.get("/courses/:id", bCtrl.getCourse);
 app.post("/submit", bCtrl.submitApplication);
 app.get("/api", bCtrl.getLocationData);
 
-let port = 3010;
+let port = 2729;
 
 app.listen(port, () => {
   console.log("Listening on port: " + port);
