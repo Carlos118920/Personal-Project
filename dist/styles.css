@@ -103,7 +103,27 @@ table {
     width: 15px; }
   .bubble:nth-of-type(16) {
     height: 30px;
-    width: 30px; } }
+    width: 30px; }
+  .connectingLine1 {
+    bottom: 10%;
+    left: 28.5%;
+    width: 18%;
+    transform: translate(-50% -50%); }
+  .connectingLine2 {
+    bottom: 28.5%;
+    right: 28.5%;
+    transform: translate(50% -50%);
+    width: 12%; }
+  .connectingLine3 {
+    bottom: 41%;
+    left: 28.5%;
+    transform: translate(-50% -50%);
+    width: 10%; }
+  .connectingLine4 {
+    bottom: 65.5%;
+    right: 28.5%;
+    transform: translate(50% -50%);
+    width: 10%; } }
 
 @media (min-width: 1400px) {
   .bubble:nth-of-type(1) {
@@ -159,7 +179,27 @@ table {
     width: 22px; }
   .bubble:nth-of-type(16) {
     height: 45px;
-    width: 45px; } }
+    width: 45px; }
+  .connectingLine1 {
+    bottom: 10%;
+    left: 20%;
+    width: 26%;
+    transform: translate(-50% -50%); }
+  .connectingLine2 {
+    bottom: 28.5%;
+    right: 20%;
+    transform: translate(50% -50%);
+    width: 20%; }
+  .connectingLine3 {
+    bottom: 41%;
+    left: 20%;
+    transform: translate(-50% -50%);
+    width: 15%; }
+  .connectingLine4 {
+    bottom: 65.5%;
+    right: 20%;
+    transform: translate(50% -50%);
+    width: 15%; } }
 
 html {
   box-sizing: border-box;
@@ -1041,26 +1081,6 @@ body {
     position: absolute;
     padding-top: 3px;
     background: transparent; }
-  .jobSearchContainer .connectingLine1 {
-    bottom: 10%;
-    left: 20%;
-    width: 26%;
-    transform: translate(-50% -50%); }
-  .jobSearchContainer .connectingLine2 {
-    bottom: 28.5%;
-    right: 20%;
-    transform: translate(50% -50%);
-    width: 20%; }
-  .jobSearchContainer .connectingLine3 {
-    bottom: 41%;
-    left: 20%;
-    transform: translate(-50% -50%);
-    width: 15%; }
-  .jobSearchContainer .connectingLine4 {
-    bottom: 65.5%;
-    right: 20%;
-    transform: translate(50% -50%);
-    width: 15%; }
 
 .applyContainer {
   width: 100%;
