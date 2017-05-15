@@ -32,11 +32,9 @@ module.exports = {
     })
   },
   getLocationData: (req, res, next) => {
-    axios.get("http://ip-api.com/json").then(function(response){
-      let origin = response.data.city + "," + response.data.regionName;
-      axios.get("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + origin + "&destinations=Dallas,Tx|Provo,UT|SaltLakeCity,UT&key=" + config.APIKEY).then(function (response2){
-        res.status(200).send(response2.data);
-      })
+    let origin2 = req.body.origin;
+    axios.get("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + origin2 + "&destinations=Dallas,Tx|Provo,UT|SaltLakeCity,UT&key=" + config.APIKEY).then(function (response){
+      res.status(200).send(response.data);
     })
   }
 }

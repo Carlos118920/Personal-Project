@@ -163,7 +163,7 @@ angular.module("DME").controller("locationChoiceCtrl", function ($scope, $timeou
       $scope.$apply();
     }, 1200);
   };
-  mainSrv.getTravelData().then(function (response) {
+  mainSrv.getLocationData().then(function (response) {
     $scope.dallasDistance = response.data.rows["0"].elements["0"].distance.text;
     $scope.dallasTime = response.data.rows["0"].elements["0"].duration.text;
     $scope.provoDistance = response.data.rows["0"].elements["1"].distance.text;
@@ -669,9 +669,16 @@ angular.module("DME").service("mainSrv", function ($http) {
     });
   };
 
-  this.getTravelData = function () {
-    return $http.get("/api").then(function (response) {
-      return response;
+  this.getLocationData = function () {
+    return $http.get("http://ip-api.com/json").then(function (response) {
+      var origin = response.data.city + "," + response.data.regionName;
+      return $http({
+        method: "POST",
+        url: "/api",
+        data: { origin: origin }
+      }).then(function (response2) {
+        return response2;
+      });
     });
   };
 });

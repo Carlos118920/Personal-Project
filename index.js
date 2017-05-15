@@ -34,7 +34,7 @@ app.use(session({ resave: true,
 app.get("/courses/all", bCtrl.getAll);
 app.get("/courses/:id", bCtrl.getCourse);
 app.post("/submit", bCtrl.submitApplication);
-app.get("/api", bCtrl.getLocationData);
+app.post("/api", bCtrl.getLocationData);
 
 let port = 2729;
 

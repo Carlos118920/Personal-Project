@@ -180,9 +180,16 @@ angular.module("DME").service("mainSrv", function($http){
     })
   }
 
-  this.getTravelData = () => {
-    return $http.get("/api").then((response) => {
-      return response;
-    });
+  this.getLocationData = () => {
+    return $http.get("http://ip-api.com/json").then((response) => {
+      let origin = response.data.city + "," + response.data.regionName;
+      return $http({
+        method: "POST",
+        url: "/api",
+        data: {origin}
+      }).then((response2) => {
+        return response2;
+      })
+    })
   }
 })
